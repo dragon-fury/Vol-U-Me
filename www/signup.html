@@ -12,10 +12,15 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="./css/who.css"/>
     <body>
         <div class="alert"></div>
-        <form style="color: #0099B8" action="">
-				<input type="radio" name="radiobutton" value="organization">Organization<br>
-				<input type="radio" name="radiobutton" value="person">Volunteer <br>
-			</form>
+        <div class="container">
+        <div class="switch">
+         <input type="radio" class="switch-input" name="view" value="organization" id="organization" checked>
+           <label for="organization" class="switch-label switch-label-off">Organization</label>
+           <input type="radio" class="switch-input" name="view" value="volunteer" id="volunteer">
+          <label for="volunteer" class="switch-label switch-label-on">Volunteer</label>
+         <span class="switch-selection"></span>
+       </div>
+       </div>
             <div id="user_profile" style="display:none">
         <form name="user_profile" id ="user_profile" class="profile">
             <input type="hidden" value="user" />
@@ -58,7 +63,7 @@ and open the template in the editor.
                 $("#user_profile").hide();
                 $("#org_profile").show();
             }
-            if($(this).attr("value")=="person"){
+            if($(this).attr("value")=="volunteer"){
                 $("#org_profile").hide();
                 $("#user_profile").show();
             }
