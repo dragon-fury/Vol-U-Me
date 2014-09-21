@@ -104,7 +104,7 @@ $(document).ready(function() {
 	$('.org_tabs').addClass('hidden');
 	$('.org_tabs').first().addClass('current').removeClass('hidden');
 
-	$('.event_signup_tab > li > button').on('click', function(e){
+	$('.event_signup_tab > span > button').on('click', function(e){
 		$('.org_tabs').removeClass('current').addClass('hidden');
 		$($(this).attr('goto')).addClass('current').removeClass('hidden');
 	});
