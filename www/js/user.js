@@ -5,6 +5,8 @@ $(document).ready(function() {
 	Parse.initialize(APP_KEY, JS_KEY);
 
 	var UserRecord = Parse.Object.extend("UserRecord");
+	var EventRecord = Parse.Object.extend("EventRecord");
+
 
 	$.urlParam = function(name){
 	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -24,7 +26,6 @@ $(document).ready(function() {
 
 	query.first({
 		success:function(result) {
-			$('#userId').html(result.get('objectId'));
 			$('#username').html(result.get('firstname') +' '+ result.get('lastname'));
 			$('#email').html(result.get('email'));
 			$('#age').html(result.get('age'));
@@ -35,12 +36,47 @@ $(document).ready(function() {
 		}
 	});
 
+	var getOrgName = function(id){
+		var query = new Parse.Query(UserRecord);
 
-	$('.tabu').addClass('hidden');
-	$('.tabu').first().addClass('current').removeClass('hidden');
+		query.equalTo("objectId", id);
+			query.first({
+		success:function(result) {
+			return result.get('lastname');
+		},
+		error:function(error) {
+			alert('Error');
+		}
+	});
 
-	$('.tab-bar > li > a').on('click', function(e){
-		$('.tabu').removeClass('current').addClass('hidden');
+	};
+
+	var query = new Parse.Query(EventRecord);
+	query.find({
+		success:function(results) {
+			for(var i=0;i<results.length;i++){
+
+				$('.opport').append('<tr><td> Event Name:</td><td>'+results[i].get('name')+'</td></tr>');
+				$('.opport').append('<tr><td> Location: </td><td>'+results[i].get('location')+'</td></tr>');
+				$('.opport').append('<tr><td> Time: </td><td>'+results[i].get('timed')+'</td></tr>');
+				$('.opport').append('<tr><td> Duration: </td><td>'+results[i].get('duration')+'</td></tr>');
+				$('.opport').append('<tr><td><input type="submit" value="Sign up"</td></tr>');
+				$('.opport').append('<tr><td style="color:#DDF0E1"> This is empty line</td></tr>');
+			}
+		},
+		error:function(error) {
+			alert('Error');
+		}
+	});
+
+
+
+	$('.usr_tabs').addClass('hidden');
+	$('.usr_tabs').first().addClass('current').removeClass('hidden');
+
+	$('.tabd a').on('click', function(e){
+		e.preventDefault();
+		$('.usr_tabs').removeClass('current').addClass('hidden');
 		$($(this).attr('href')).addClass('current').removeClass('hidden');
 	});
 
