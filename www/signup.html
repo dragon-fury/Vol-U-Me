@@ -10,14 +10,14 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./css/who.css"/>
-    </head>
     <body>
         <div class="alert"></div>
         <form style="color: #0099B8" action="">
-				<input type="radio" name="organization" value="organization">Organization<br>
-				<input type="radio" name="person" value="person">Volunteer <br>
+				<input type="radio" name="radiobutton" value="organization">Organization<br>
+				<input type="radio" name="radiobutton" value="person">Volunteer <br>
 			</form>
-        <form name="user_profile" class="profile">
+            <div id="user_profile" style="display:none">
+        <form name="user_profile" id ="user_profile" class="profile">
             <input type="hidden" value="user" />
             <ul style="list-style-type: none">
                  <li> <input type="text" placeholder="First Name" name="fname" /></li>
@@ -33,7 +33,9 @@ and open the template in the editor.
                  <li> <input type="submit" class="register" value="Register" /> </li>
             </ul>
         </form>
-             <form name="user_profile" class="profile">
+        </div>
+        <div id="org_profile"  style="display:none">
+             <form name="org_profile" id ="user_profile" class="profile">
             <input type="hidden" value="organization" />
             <ul style="list-style-type: none">
                  <li> <input type="text" placeholder="Organization Name" name="oname" /></li>
@@ -46,8 +48,21 @@ and open the template in the editor.
                  <li> <input type="submit" class="register" value="Register" /> </li>
             </ul>
         </form>
+        </div>
         <script type="text/javascript" src="./js/jquery.min.js"></script>
         <script type="text/javascript" src="./js/parse.min.js"></script>
         <script type="text/javascript" src="./js/signup.js"></script>
+        <script type="text/javascript">
+        $('input[type="radio"]').click(function(){
+            if($(this).attr("value")=="organization"){
+                $("#user_profile").hide();
+                $("#org_profile").show();
+            }
+            if($(this).attr("value")=="person"){
+                $("#org_profile").hide();
+                $("#user_profile").show();
+            }
+        });
+		</script>
     </body>
 </html>
