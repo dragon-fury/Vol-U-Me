@@ -1,57 +1,31 @@
-// var APP_KEY = "Hga94rZiIC8m8iuN6NR7bNZpYsIEYE0FOQdi7W3n";
-// var JS_KEY = "5FQVzzjGbcpiVdB8tjTBlfnixMBo1KWN7Ls8Psie";
+var APP_KEY = "Hga94rZiIC8m8iuN6NR7bNZpYsIEYE0FOQdi7W3n";
+var JS_KEY = "5FQVzzjGbcpiVdB8tjTBlfnixMBo1KWN7Ls8Psie";
 
-// $(document).ready(function() {
-// 	Parse.initialize(APP_KEY, JS_KEY);
+$(document).ready(function() {
+	Parse.initialize(APP_KEY, JS_KEY);
 
-// 	NoteObject = Parse.Object.extend("NoteObject");
+	UserObject = Parse.Object.extend("UserObject");
 
-// 	function getNotes() {
-// 		var query = new Parse.Query(NoteObject);
+	function getNotes() {
+		var query = new Parse.Query(NoteObject);
 
-// 		query.find({
-// 			success:function(results) {
-// 				console.dir(results);
-// 				var s = "";
-// 				for(var i=0, len=results.length; i<len; i++) {
-// 					var note = results[i];
-// 					s += "<p>";
-// 					s += "<b>"+note.get("title")+"</b><br/>";
-// 					s += "<b>Written "+note.createdAt + "<br/>";
-// 					s += note.get("body");
-// 					s += "</p>";
-// 				}
-// 				$("#notes").html(s);
-// 			},
-// 			error:function(error) {
-// 				alert("Error when getting notes!");
-// 			}
-// 		});
-// 	}
-
-// 	$("#addNoteBtn").on("touchend", function(e) {
-// 		e.preventDefault();
-
-// 		//Grab the note details, no real validation for now
-// 		var title = $("#noteTitle").val();
-// 		var body = $("#noteBody").val();
-
-// 		var note = new NoteObject();
-// 		note.save({title:title, body:body}, {
-// 			success:function(object) {
-// 				console.log("Saved the object!");
-// 				$("#noteTitle").val("");
-// 				$("#noteBody").val("");
-// 				getNotes();
-// 			}, 
-// 			error:function(object,error) {
-// 				console.dir(error);
-// 				alert("Sorry, I couldn't save it.");
-// 			}
-// 		});
-// 	});
-
-// 	//call getNotes immediately
-// 	getNotes();
-
-// });
+		query.find({
+			success:function(results) {
+				console.dir(results);
+				var s = "";
+				for(var i=0, len=results.length; i<len; i++) {
+					var note = results[i];
+					s += "<p>";
+					s += "<b>"+note.get("title")+"</b><br/>";
+					s += "<b>Written "+note.createdAt + "<br/>";
+					s += note.get("body");
+					s += "</p>";
+				}
+				$("#notes").html(s);
+			},
+			error:function(error) {
+				alert("Error when getting notes!");
+			}
+		});
+	};
+});

@@ -21,7 +21,18 @@ $(document).ready(function() {
 		if(password === confirm_password) {
 		
 			var note = new UserRecord();
-			note.save({firstname:fname, lastname:lname, age:age, phone:phone, email:email, password:password}, {
+			note.save({
+				firstname: fname, 
+				lastname: lname, 
+				age: age, 
+				phone: phone, 
+				email: email, 
+				password: password,
+				type: "User",
+				rating: 0,
+				badges: []
+
+			}, {
 				success:function(record) {
 					console.log("Saved the record!");
 				}, 
