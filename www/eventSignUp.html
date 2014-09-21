@@ -6,29 +6,52 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>SignUp</title>
+        <title>Event SignUp</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./css/who.css"/>
     </head>
     <body>
+        <h1>Event SignUp</h1>
         <div class="alert"></div>
-        <form name="user_profile" class="profile">
-            <input type="hidden" value="user" />
-            <ul style="list-style-type: none">
-                 <li> <input type="text" placeholder=" Event Name" name="name" /></li>
-                 <li> <input type="text" placeholder="Date" name="date" /></li>
-               
-                    <input type="number" placeholder="Age Range" name="ageReq" />
-                 </li>
-                 <li> <input type="number" placeholder="Slots" name="slots" /></li>
-                 <li> <textarea placeholder="Description" name="description"></textarea></li>
-              
-                 <li> <input type="submit" class="submint" value="Submit" /> </li>
-            </ul>
-        </form>
+            <input type="hidden" />
+            <div id="post_event" class='org_tabs'>
+                <h1 class="orgNameForPage"></h1>
+                <form name="org_profile" class="org_profile">
+                    <input type="hidden" value="user" />
+                    <ul style="list-style-type: none">
+                         <li> <input type="text" placeholder="Event Name" name="org_name" /></li>
+                         <li> <input type="text" placeholder="Location" name="locate" /></li>
+                         <li> <input type="date" placeholder="Date" name="date" /></li>
+                         <li> <input type="number" placeholder="Age lower limit" name="ageLow" /></li>
+                         <li> <input type="number" placeholder="Age upper limit" name="ageUp" /></li>
+                         <li> <input type="time" placeholder="Time" name="timed" /></li>
+                         <li> <input type="number" placeholder="Duration" name="duration" /></li>
+                         <li> <input type="number" placeholder="Volunteers Needed" name="need" /></li>
+                         <li> <textarea placeholder="Description" name="describe"></textarea></li>
+                         <li> <input type="submit" class="submit" value="Post Event" /></li>
+                    </ul>
+                </form>
+            </div>
+            
+            <div id="past_events"  class='org_tabs'>
+                <table class="events">
+                </table>
+            </div>
+        </div>
+        <footer>
+            <div class="event_signup_tab" style="list-style-type:none">
+                <span>
+                    <button class="post_events" goto="#post_event">Post Events</button>
+                </span>
+                <span>
+                    <button class="past_events_disp" goto="#past_events">Events</button>
+                </span>
+            </div>
+        </footer>
+
         <script type="text/javascript" src="./js/jquery.min.js"></script>
         <script type="text/javascript" src="./js/parse.min.js"></script>
-        <script type="text/javascript" src="./js/signup.js"></script>
+        <script type="text/javascript" src="./js/eventSignup.js"></script>
     </body>
 </html>

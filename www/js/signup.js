@@ -34,7 +34,46 @@ $(document).ready(function() {
 
 			}, {
 				success:function(record) {
-					console.log("Saved the record!");
+					window.location.href="user.html?email="+$(self.email).val()+"&passw="+$(self.passw).val();
+				}, 
+				error:function(record,error) {
+					console.dir(error);
+					alert("Sorry, I couldn't save it.");
+				}
+			});
+		} else {
+			$('.alert').html("Passwords dont match");
+		}
+	});
+
+	$(".org_profile").on("submit", function(e) {
+		e.preventDefault();
+
+		//Grab the note details, no real validation for now
+		var fname = $(this.oname).val();
+		var lname = $(this.lname).val();
+		var age = $(this.age).val();
+		var phone = $(this.phone).val();
+		var email = $(this.email).val();
+		var password = $(this.passw).val();
+		var confirm_password = $(this.cpassw).val();
+
+		if(password === confirm_password) {
+		
+			var note = new UserRecord();
+			note.save({
+				firstname: fname, 
+				lastname: lname, 
+				age: age, 
+				phone: phone, 
+				email: email, 
+				password: password,
+				type: "Organization",
+				rating: 0
+
+			}, {
+				success:function(record) {
+					window.location.href="eventSignUp.html?email="+$(this.email).val()+"&passw="+$(this.passw).val();
 				}, 
 				error:function(record,error) {
 					console.dir(error);

@@ -19,7 +19,7 @@ $(document).ready(function() {
 				if(object.get('type') === 'User')
 					window.location.href="user.html?email="+$(self.email).val()+"&passw="+$(self.passw).val();
 				else
-					window.location.href="organization.html?email="+$(this.email).val()+"&passw="+$(this.passw).val();
+					window.location.href="eventSignUp.html?email="+$(this.email).val()+"&passw="+$(this.passw).val();
 			},
 			error:function(error) {
 				alert('gone');
