@@ -83,7 +83,7 @@ h2 {
   top: 50px;
 }
 
-li {
+.infoList {
   list-style: none;
   background: #0099B8;
   background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);

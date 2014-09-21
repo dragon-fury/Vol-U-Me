@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SignUp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/who.css"/>
+    </head>
+    <body>
+        <div class="alert"></div>
+        <form name="user_profile" class="profile">
+            <input type="hidden" value="user" />
+            <ul style="list-style-type: none">
+                 <li> <input type="text" placeholder=" Event Name" name="name" /></li>
+                 <li> <input type="text" placeholder="Date" name="date" /></li>
+               
+                    <input type="number" placeholder="Age Range" name="ageReq" />
+                 </li>
+                 <li> <input type="number" placeholder="Slots" name="slots" /></li>
+                 <li> <textarea placeholder="Description" name="description"></textarea></li>
+              
+                 <li> <input type="submit" class="submint" value="Submit" /> </li>
+            </ul>
+        </form>
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/parse.min.js"></script>
+        <script type="text/javascript" src="./js/signup.js"></script>
+    </body>
+</html>
