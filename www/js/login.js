@@ -4,28 +4,27 @@ var JS_KEY = "5FQVzzjGbcpiVdB8tjTBlfnixMBo1KWN7Ls8Psie";
 $(document).ready(function() {
 	Parse.initialize(APP_KEY, JS_KEY);
 
-	UserObject = Parse.Object.extend("UserObject");
+	var UserRecord = Parse.Object.extend("UserRecord");
 
-	function getNotes() {
-		var query = new Parse.Query(NoteObject);
+	$('.login_form').on('submit', function(e) {
+		e.preventDefault();
+		var query = new Parse.Query(UserRecord);
+		var self = this;
+
+		query.equalTo("email", $(this.email).val());
+		query.equalTo("password", $(this.passw).val());
 
 		query.find({
-			success:function(results) {
-				console.dir(results);
-				var s = "";
-				for(var i=0, len=results.length; i<len; i++) {
-					var note = results[i];
-					s += "<p>";
-					s += "<b>"+note.get("title")+"</b><br/>";
-					s += "<b>Written "+note.createdAt + "<br/>";
-					s += note.get("body");
-					s += "</p>";
-				}
-				$("#notes").html(s);
+			success:function(object) {
+				console.dir(object);
+				$('form').get(0).setAttribute('method', 'POST');
+				$('form').get(0).setAttribute('action', 'user.html');
+				$('form').get(0).submit();
 			},
 			error:function(error) {
-				alert("Error when getting notes!");
+				alert('gone');
 			}
 		});
-	};
+
+	});
 });
