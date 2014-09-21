@@ -96,3 +96,11 @@ h2 {
   padding: 10px 200px 50px 200px;
   text-decoration: none;
 }
+
+.hidden {
+  display: none;
+}
+
+.current {
+  display: block;
+}

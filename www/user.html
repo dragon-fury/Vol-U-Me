@@ -12,20 +12,33 @@ and open the template in the editor.
          <link rel="stylesheet" type="text/css" href="./css/who.css"/>
     </head>
     <body>
-        <div><h1 id="username">Name goes here</h1></div>
-        <div id="profile_photo"> Image goes here </div>
-        <div><h2 id="info"> Information goes here</h2></div>
-        <div class"infoList">
-            <ul style="list-style-type: none;">
-                <li id="age"></li>
-                <li id="email"> </li>
-                <li id="phone"></li>
-                <li id="address"></li>
-            </ul>
+        <div type="hidden" id="userId"></div>
+        <div id="progress" class="tabu">
+            <div>Yo</div>
+        </div>
+        <div id="events" class="tabu">
+        Events signed up for
+        </div>
+        <div id="opportunities" class="tabu">
+        Jobs 
         </div>
 
         <script type="text/javascript" src="./js/jquery.min.js"></script>
         <script type="text/javascript" src="./js/parse.min.js"></script>
         <script type="text/javascript" src="./js/user.js"></script>
+
+        <footer>
+            <ul class="tab-bar">
+                <li>
+                    <a href="#progress">Progress</a>
+                </li>
+                <li>
+                    <a href="#events">Signed up</a>
+                </li>
+                <li>
+                    <a href="#opportunities">Opportunities</a>
+                </li>
+            </ul>
+        </footer>
     </body>
 </html>

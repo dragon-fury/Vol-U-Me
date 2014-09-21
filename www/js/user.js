@@ -24,6 +24,7 @@ $(document).ready(function() {
 
 	query.first({
 		success:function(result) {
+			$('#userId').html(result.get('objectId'));
 			$('#username').html(result.get('firstname') +' '+ result.get('lastname'));
 			$('#email').html(result.get('email'));
 			$('#age').html(result.get('age'));
@@ -33,4 +34,14 @@ $(document).ready(function() {
 			alert('Error');
 		}
 	});
+
+
+	$('.tabu').addClass('hidden');
+	$('.tabu').first().addClass('current').removeClass('hidden');
+
+	$('.tab-bar > li > a').on('click', function(e){
+		$('.tabu').removeClass('current').addClass('hidden');
+		$($(this).attr('href')).addClass('current').removeClass('hidden');
+	});
+
 });
