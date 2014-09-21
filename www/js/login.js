@@ -14,12 +14,12 @@ $(document).ready(function() {
 		query.equalTo("email", $(this.email).val());
 		query.equalTo("password", $(this.passw).val());
 
-		query.find({
+		query.first({
 			success:function(object) {
-				console.dir(object);
-				$('form').get(0).setAttribute('method', 'POST');
-				$('form').get(0).setAttribute('action', 'user.html');
-				$('form').get(0).submit();
+				if(object.get('type') === 'User')
+					window.location.href="user.html?email="+$(self.email).val()+"&passw="+$(self.passw).val();
+				else
+					window.location.href="organization.html?email="+$(this.email).val()+"&passw="+$(this.passw).val();
 			},
 			error:function(error) {
 				alert('gone');

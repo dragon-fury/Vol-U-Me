@@ -12,22 +12,23 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="./css/who.css"/>
     </head>
     <body>
-    <div class="alert"></div>
-    <form name="user_profile" class="profile">
-        <input type="hidden" value="user" />
-        <ul style="list-style-type: none">
-             <li> <input type="text" placeholder="First Name" name="fname" /></li>
-             <li> <input type="text" placeholder="Last Name" name="lname" /></li>
-             <li> 
-                <input type="number" placeholder="Age" name="age" />
-             </li>
-             <li> <input type="number" placeholder="Phone Number" name="phone" /></li>
-             <li> <input type="email" placeholder="Email" name="email" /></li>
-             <li> <input type="password" placeholder="Password" name="passw" /></li>
-             <li> <input type="password" placeholder="Confirm Password" name="cpassw" /></li>
-             <li> <input type="submit" class="register" value="Register" /> </li>
-        </ul>
-    </form>
+        <div class="alert"></div>
+        <form name="user_profile" class="profile">
+            <input type="hidden" value="user" />
+            <ul style="list-style-type: none">
+                 <li> <input type="text" placeholder="First Name" name="fname" /></li>
+                 <li> <input type="text" placeholder="Last Name" name="lname" /></li>
+                 <li> <input type="email" placeholder="Email" name="email" /></li>
+                 <li> 
+                    <input type="number" placeholder="Age" name="age" />
+                 </li>
+                 <li> <input type="number" placeholder="Phone Number" name="phone" /></li>
+                 <li> <textarea placeholder="Address" name="address"></textarea></li>
+                 <li> <input type="password" placeholder="Password" name="passw" /></li>
+                 <li> <input type="password" placeholder="Confirm Password" name="cpassw" /></li>
+                 <li> <input type="submit" class="register" value="Register" /> </li>
+            </ul>
+        </form>
         <script type="text/javascript" src="./js/jquery.min.js"></script>
         <script type="text/javascript" src="./js/parse.min.js"></script>
         <script type="text/javascript" src="./js/signup.js"></script>
